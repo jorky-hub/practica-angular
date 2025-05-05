@@ -9,8 +9,27 @@
         <img [src]="character.image" class="img-fluid mb-2" />
         <p>Status: {{ character.status }}</p>
         <p>Gender: {{ character.gender }}</p>
-        <p>Location: {{ character.location.name }}</p>
-        <p>Url: {{ character.location.url }}</p>
+
+        <!-- Mostrar ubicación solo si está definida -->
+        <div *ngIf="location">
+          <hr>
+          <h6>Ubicación</h6>
+          <p><strong>Nombre:</strong> {{ location.name }}</p>
+          <p><strong>Tipo:</strong> {{ location.type }}</p>
+          <p><strong>Dimensión:</strong> {{ location.dimension }}</p>
+          <button class="btn btn-outline-info mt-2" (click)="verUbicacionCompleta.emit()">Ver toda la ubicación</button>
+        </div>
+
+
+        <!-- Botón para ver todos los episodios -->
+        <button
+          class="mt-4 btn btn-primary"
+          (click)="verTodosLosEpisodios()"
+        >
+          Ver todos los episodios
+        </button>
+
+
       </div>
     </div>
   </div>

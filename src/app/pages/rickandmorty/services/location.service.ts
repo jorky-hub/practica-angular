@@ -23,10 +23,10 @@ export class LocationService {
   }
 
   // Obtiene un Location usando una URL completa (como las que vienen en los personajes)
-  getLocationByUrl(url: string): Observable<Location> {
-    return this.http.get<Location>(url).pipe(
+  getLocationByUrl(): Observable<Location> {
+    return this.http.get<Location>(`${this.baseUrl}`).pipe(
       catchError(error => {
-        console.error(`Error obteniendo ubicación con URL ${url}:`, error);
+        console.error(`Error obteniendo ubicación con URL ${this.baseUrl}:`, error);
         return throwError(() => new Error('Error al cargar la ubicación'));
       })
     );

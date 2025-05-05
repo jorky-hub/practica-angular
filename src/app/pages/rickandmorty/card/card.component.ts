@@ -25,6 +25,7 @@ export class CardComponent {
     // No hay más spinner, lo quitamos
     this.isLoadingDetails = false;
 
+
     // Emitimos el personaje al padre para abrir el modal
     this.openModal.emit(this.character);
   }

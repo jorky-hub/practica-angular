@@ -5,6 +5,7 @@ import { DbzComponent } from './pages/dbz/dbz.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { CoctelesComponent } from './pages/cocteles/cocteles.component';
 import { RickAndMortyComponent } from './pages/rickandmorty/rick-and-morty.component';
+import { EpisodesComponent } from './pages/rickandmorty/episodes/episodes.component';
 
 export const routes: Routes = [
     {path: '' ,redirectTo: 'home',pathMatch:'full'},
@@ -13,6 +14,7 @@ export const routes: Routes = [
     {path:'cocteles',component: CoctelesComponent},
     {path: 'dbz', component: DbzComponent},
     {path: 'rick_and_morty', component: RickAndMortyComponent},
+    { path: 'episodios', component: EpisodesComponent },
     {path:'miapi', loadChildren: () => import('./pages/miapi/miapi-routing.module').then(m => m.MiapiRoutingModule)},
     {path: '**', component: ErrorComponent }
     

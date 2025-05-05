@@ -1,5 +1,8 @@
 <div class="container mt-4">
 
+  <app-search (search)="searchCharacterByName($event)"></app-search>
+
+
   <!-- Cards -->
   <div class="row">
     <div class="col-md-4 mb-3" *ngFor="let character of characters">
@@ -8,17 +11,18 @@
   </div>
 
   <!-- Modal -->
-  <app-modal *ngIf="showModal && selectedCharacter"
-             [character]="selectedCharacter"
-             [show]="showModal"
-             (close)="closeModal()">
+  <app-modal *ngIf="showModal && selectedCharacter" [character]="selectedCharacter" [location]="selectedLocation"
+    [show]="showModal" (verUbicacionCompleta)="verUbicacionCompleta()" (close)="closeModal()">
   </app-modal>
 
+  <app-location-modal *ngIf="showLocationModal && selectedLocation"
+  [location]="selectedLocation"
+    (close)="closeLocationModal()">
+  </app-location-modal>
+
+
   <!-- Paginación -->
-  <app-paginacion
-    [currentPage]="currentPage"
-    [totalPages]="totalPages"
-    (changePage)="onPageChange($event)">
+  <app-paginacion [currentPage]="currentPage" [totalPages]="totalPages" (changePage)="onPageChange($event)">
   </app-paginacion>
 
 </div>

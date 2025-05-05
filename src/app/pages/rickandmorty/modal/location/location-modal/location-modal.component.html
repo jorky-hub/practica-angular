@@ -1,0 +1,27 @@
+<div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5)">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ubicación: {{ location.name }}</h5>
+        <button type="button" class="btn-close" (click)="cerrarModal()"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>ID:</strong> {{ location.id }}</p>
+        <p><strong>Tipo:</strong> {{ location.type }}</p>
+        <p><strong>Dimensión:</strong> {{ location.dimension }}</p>
+        <p><strong>URL:</strong> {{ location.url }}</p>
+        <p><strong>Creado:</strong> {{ location.created | date:'short' }}</p>
+
+        <div class="mt-3">
+          <strong>Residentes ({{ location.residents.length }}):</strong>
+          <ol *ngIf="location.residents.length > 0; else sinResidentes">
+            <li *ngFor="let resident of location.residents">{{ resident }}</li>
+          </ol>
+          <ng-template #sinResidentes>
+            <p>No hay residentes.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

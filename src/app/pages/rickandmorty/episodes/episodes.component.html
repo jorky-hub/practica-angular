@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Episodios del personaje</h2>
+
+  <div *ngIf="episodes.length === 0" class="alert alert-info text-center">
+    Cargando episodios...
+  </div>
+
+  <div class="row" *ngIf="episodes.length > 0">
+    <div class="col-md-4 mb-3" *ngFor="let episode of episodes">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ episode.name }}</h5>
+          <p class="card-text">
+            <strong>Fecha de emisión:</strong> {{ episode.air_date }}
+          </p>
+          <p class="card-text">
+            <strong>Código:</strong> {{ episode.episode }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-danger" routerLink="/rick_and_morty">
+      Regresar
+    </button>
+  </div>
+</div>

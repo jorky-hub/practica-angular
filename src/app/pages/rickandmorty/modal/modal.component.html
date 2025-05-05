@@ -1,0 +1,17 @@
+<div class="modal fade show d-block" *ngIf="show" tabindex="-1" style="background-color: rgba(0,0,0,0.5)">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ character.name | titlecase }}</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <img [src]="character.image" class="img-fluid mb-2" />
+        <p>Status: {{ character.status }}</p>
+        <p>Gender: {{ character.gender }}</p>
+        <p>Location: {{ character.location.name }}</p>
+        <p>Url: {{ character.location.url }}</p>
+      </div>
+    </div>
+  </div>
+</div>

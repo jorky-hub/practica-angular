@@ -3,10 +3,6 @@ import { PokemonService } from '../services/pokemon.service';
 import { NgClass } from '@angular/common';
 import { Pokemons } from '../interfaces/pokemons';
 
-
-
-
-
 @Component({
   selector: 'pokemon-paginacion',
   imports: [NgClass],
@@ -33,7 +29,7 @@ loadPokemons(url:string){
         this._srvPokemon.nextURL = pokemonsAll.next;
         this._srvPokemon.previousURL = pokemonsAll.previous;
         this.eventNewPokemons.emit(pokemonsAll)
-        
+
       });
     });
   });

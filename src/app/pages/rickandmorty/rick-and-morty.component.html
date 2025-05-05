@@ -1,0 +1,24 @@
+<div class="container mt-4">
+
+  <!-- Cards -->
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let character of characters">
+      <app-card [character]="character" (openModal)="showDetails($event)"></app-card>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <app-modal *ngIf="showModal && selectedCharacter"
+             [character]="selectedCharacter"
+             [show]="showModal"
+             (close)="closeModal()">
+  </app-modal>
+
+  <!-- Paginación -->
+  <app-paginacion
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (changePage)="onPageChange($event)">
+  </app-paginacion>
+
+</div>

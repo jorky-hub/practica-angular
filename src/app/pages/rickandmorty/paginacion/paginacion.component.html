@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center align-items-center mt-4">
+  <nav aria-label="Navegación de páginas">
+    <ul class="pagination">
+      <!-- Botón anterior -->
+      <li class="page-item" [ngClass]="{'disabled': currentPage === 1}">
+        <button class="page-link" (click)="prev()" aria-label="Anterior">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+      </li>
+
+      <!-- Números de página -->
+      <ng-container *ngFor="let page of getPaginationArray()">
+        <li class="page-item" [ngClass]="{'active': page === currentPage}" *ngIf="page !== '...'">
+          <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+        </li>
+        <li class="page-item disabled" *ngIf="page === '...'">
+          <span class="page-link">{{ page }}</span>
+        </li>
+      </ng-container>
+
+      <!-- Botón siguiente -->
+      <li class="page-item" [ngClass]="{'disabled': currentPage === totalPages}">
+        <button class="page-link" (click)="next()" aria-label="Siguiente">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
